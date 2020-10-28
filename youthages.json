@@ -1,0 +1,27 @@
+[
+ {
+   "ageBracket": "All 0–17",
+   "males": "194,340",
+   "females": "89,178"
+ },
+ {
+  "ageBracket": "<5",
+   "males": "14,394",
+   "females": "8,078"
+ },
+ {
+  "ageBracket": "5–9",
+   "males": "39,673",
+   "females": "18,463"
+ },
+ {
+  "ageBracket": "10–14",
+   "males": "83,941",
+   "females": "34,713"
+ },
+ {
+  "ageBracket": "15–17",
+   "males": "56,332",
+   "females": "27,925"
+ }
+]
