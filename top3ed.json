@@ -1,18 +1,18 @@
 [
  {
-   "Cause": "Falls",
+   "cause": "Falls",
    "visits": 47.9
  },
  {
-   "Cause": "Struck by an Object",
+   "cause": "Struck by an Object",
    "visits": 17.1
  },
  {
-   "Cause": "Motor Vehicle Crash",
+   "cause": "Motor Vehicle Crash",
    "visits": 13.2
  },
  {
-   "Cause": "Other",
+   "cause": "Other",
    "visits": 21.8
  }
 ]

@@ -41,7 +41,7 @@ var ageBracket = [];
 var males = [];
 var females = [];
 
-var pieNum1 = [];
+var pieNum1 = {};
 var pieCat = [];
 
 function loadJSON() {
@@ -77,14 +77,19 @@ function parseData(youthages) {
 }
 
 function parseData2(top3ed) {
-    $.each(top3ed, function(index) {
+   /* $.each(top3ed, function(index) {
        pieNum1.push(parseFloat(top3ed[index]["Visits (%)"]));
        
          pieCat.push(top3ed[index]["Cause"]);
         console.log(pieNum1);
     });
     //pieNum1.unshift("percent");
-    
+    */
+   top3ed.forEach(function(e) {
+    pieCat.push(e.cause);
+    pieNum1[e.cause] = e.visits;
+   });
+       
     buildCharts();
 }
 console.log(pieNum1);
@@ -211,3 +216,13 @@ $('#table1').DataTable( {
         {"data": "females"}
     ]
 } );
+
+$('#table2').DataTable( {
+    "ajax": 'youthages2.json',
+    "columns": [
+        { "data": "ageBracket"},
+        { "data": "males"},
+        {"data": "females"}
+    ]
+} );
+

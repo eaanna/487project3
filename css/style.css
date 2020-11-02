@@ -99,3 +99,36 @@ h2 {
 #inyouth {
     margin-bottom: 25px;
 }
+
+h4 {
+	margin-top: 30px;
+	font-family: 'Poppins', sans-serif;
+	color: #40916C;
+	font-size: 20px;
+	font-weight: 400;
+	text-align: center;
+}
+.nav-tabs > li > a {
+	border: 1px solid rgba(41, 41, 41, 0.2);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	color: rgba(41, 41, 41, 1);
+}
+
+/*individual tabs*/
+li {
+	text-align: center;
+	padding-top: 5px;
+	font-family: 'Poppins', sans-serif;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	list-style-type: none;
+}
+
+/*text of active tab*/
+.nav-tabs > li.active > a {
+	color: #40916C;
+	border: 1px solid rgba(41, 41, 41, 0.2);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
