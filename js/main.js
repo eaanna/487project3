@@ -44,6 +44,9 @@ var females = [];
 var pieNum1 = {};
 var pieCat = [];
 
+var pieNum2 = {};
+var pieCat2 = [];
+
 function loadJSON() {
     $.getJSON("youthages.json", function (youthages) {
         console.log(youthages);
@@ -53,6 +56,11 @@ function loadJSON() {
     $.getJSON("top3ed.json", function (top3ed){
         parseData2(top3ed);
         //console.log(top3ed[0]["Visits (%)"]);
+    });
+
+    $.getJSON("childthird.json", function (child){
+        parseData3(child);
+        
     });
     
 }
@@ -89,10 +97,17 @@ function parseData2(top3ed) {
     pieCat.push(e.cause);
     pieNum1[e.cause] = e.visits;
    });
-       
-    buildCharts();
 }
 console.log(pieNum1);
+
+function parseData3(child) {
+    child.forEach(function(f) {
+     pieCat2.push(f.group);
+     pieNum2[f.group] = f.visits;
+    });
+        
+     buildCharts();
+ }
 
 function buildCharts() {
     console.log(males);
@@ -171,9 +186,7 @@ function buildCharts() {
     var pie1 = c3.generate({
         bindto: "#pie1",
         data: {
-            json: [
-                pieNum1
-            ],
+            json: [ pieNum1 ],
             keys: {
                 value: pieCat,
             },
@@ -181,16 +194,19 @@ function buildCharts() {
             onclick: function (d, i) { console.log("onclick", d, i); },
             onmouseover: function (d, i) { console.log("onmouseover", d, i); },
             onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+        },
+        color: {
+            pattern: ['#871f78','#c64b8c','#7859a9','#e1bee7']
         }
     });
 
     var pie2 = c3.generate({
         bindto: "#pie2",
         data: {
-            columns: [
-                ['data1', 30],
-                ['data2', 120],
-            ],
+            json: [ pieNum2 ],
+            keys: {
+                value: pieCat2,
+            },
             type : 'pie',
             onclick: function (d, i) { console.log("onclick", d, i); },
             onmouseover: function (d, i) { console.log("onmouseover", d, i); },
@@ -218,11 +234,27 @@ $('#table1').DataTable( {
 } );
 
 $('#table2').DataTable( {
-    "ajax": 'youthages2.json',
+    "ajax": 'top3ed2.json',
     "columns": [
-        { "data": "ageBracket"},
-        { "data": "males"},
-        {"data": "females"}
+        {"data": "cause"},
+        {"data": "visits"}
     ]
 } );
+
+$('#table3').DataTable( {
+    "ajax": 'childthird2.json',
+    "columns": [
+        {"data": "group"},
+        {"data": "visits"}
+    ]
+} );
+
+$('#table4').DataTable( {
+    "ajax": 'sportstbi.json',
+    "columns": [
+        {"activity": "name"},
+        {"activity": "overall"}
+    ]
+} );
+
 

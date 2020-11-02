@@ -1,0 +1,21 @@
+{
+  "data":
+[
+ {
+   "cause": "Falls",
+   "visits": 47.9
+ },
+ {
+   "cause": "Struck by an Object",
+   "visits": 17.1
+ },
+ {
+   "cause": "Motor Vehicle Crash",
+   "visits": 13.2
+ },
+ {
+   "cause": "Other",
+   "visits": 21.8
+ }
+]
+}
